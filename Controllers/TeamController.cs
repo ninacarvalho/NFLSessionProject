@@ -45,7 +45,7 @@ namespace NflTeamsSessionState.Controllers
                     favorites.Add(team);
                     nflSession.SetMyTeams(favorites);
 
-                    // 🔥 Save to cookie
+                    // Save to cookie
                     var cookies = new NFLCookies(Response.Cookies);
                     cookies.SetMyTeamIds(favorites);
                 }
