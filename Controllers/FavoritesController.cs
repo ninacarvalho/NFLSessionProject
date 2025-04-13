@@ -14,9 +14,14 @@ public class FavoritesController : Controller
     [HttpPost]
     public IActionResult Delete()
     {
-        var nflSession = new NFLSession(HttpContext.Session);
-        nflSession.RemoveMyTeams();
+        var session = new NFLSession(HttpContext.Session);
+        session.RemoveMyTeams();
+
+        var cookies = new NFLCookies(Response.Cookies);
+        cookies.RemoveMyTeamIds();
+
         TempData["message"] = "Favorite teams cleared!";
         return RedirectToAction("Index", "Team");
     }
+
 }
