@@ -1,0 +1,17 @@
+﻿@model List<NflTeamsSessionState.Models.Team>
+
+<h2>Select Your Favorite NFL Team</h2>
+
+<form asp-action="AddToFavorites" method="post">
+    <select name="teamName">
+        @foreach (var team in Model)
+        {
+            <option value="@team.Name">@team.City @team.Name</option>
+        }
+    </select>
+    <button type="submit" class="btn btn-primary">Add to Favorites</button>
+</form>
+
+<p>
+    <a asp-controller="Favorites" asp-action="Index">View My Favorite Teams</a>
+</p>
